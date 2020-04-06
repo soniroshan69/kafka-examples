@@ -1,0 +1,81 @@
+<classpath>
+  <classpathentry kind="src" path="src/main/scala"/>
+  <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"></classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-clients/srcs/kafka-clients-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-2.4.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apache.kafka/kafka-clients/docs/kafka-clients-2.4.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/com.github.luben/zstd-jni/srcs/zstd-jni-1.4.3-1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/com.github.luben/zstd-jni/jars/zstd-jni-1.4.3-1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/com.github.luben/zstd-jni/docs/zstd-jni-1.4.3-1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.lz4/lz4-java/srcs/lz4-java-1.6.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.lz4/lz4-java/jars/lz4-java-1.6.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.lz4/lz4-java/docs/lz4-java-1.6.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.xerial.snappy/snappy-java/srcs/snappy-java-1.1.7.3-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.xerial.snappy/snappy-java/bundles/snappy-java-1.1.7.3.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.xerial.snappy/snappy-java/docs/snappy-java-1.1.7.3-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams-scala_2.11/srcs/kafka-streams-scala_2.11-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams-scala_2.11/jars/kafka-streams-scala_2.11-2.4.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams-scala_2.11/docs/kafka-streams-scala_2.11-2.4.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams/srcs/kafka-streams-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams/jars/kafka-streams-2.4.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams/docs/kafka-streams-2.4.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/connect-json/srcs/connect-json-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/connect-json/jars/connect-json-2.4.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apache.kafka/connect-json/docs/connect-json-2.4.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/connect-api/srcs/connect-api-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/connect-api/jars/connect-api-2.4.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apache.kafka/connect-api/docs/connect-api-2.4.1-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/srcs/jackson-databind-2.10.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/bundles/jackson-databind-2.10.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-databind/docs/jackson-databind-2.10.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/srcs/jackson-annotations-2.10.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/bundles/jackson-annotations-2.10.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-annotations/docs/jackson-annotations-2.10.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/srcs/jackson-core-2.10.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/bundles/jackson-core-2.10.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/com.fasterxml.jackson.core/jackson-core/docs/jackson-core-2.10.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/srcs/jackson-datatype-jdk8-2.10.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/bundles/jackson-datatype-jdk8-2.10.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/docs/jackson-datatype-jdk8-2.10.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.rocksdb/rocksdbjni/srcs/rocksdbjni-5.18.3-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.rocksdb/rocksdbjni/jars/rocksdbjni-5.18.3.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.rocksdb/rocksdbjni/docs/rocksdbjni-5.18.3-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.slf4j/slf4j-simple/srcs/slf4j-simple-1.7.30-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.slf4j/slf4j-simple/jars/slf4j-simple-1.7.30.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.slf4j/slf4j-simple/docs/slf4j-simple-1.7.30-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.30-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.30.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.slf4j/slf4j-api/docs/slf4j-api-1.7.30-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="output" path="bin"/>
+</classpath>
