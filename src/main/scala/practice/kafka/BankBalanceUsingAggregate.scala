@@ -23,7 +23,7 @@ import org.apache.kafka.streams.scala.kstream.KStream
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.JsonNodeFactory
 
-object BankBalance extends App {
+object BankBalanceUsingAggregate extends App {
 
   TransactionProducer.proceed()
   BalanceCalculator.proceed()
@@ -100,6 +100,7 @@ object BankBalance extends App {
       initialBal.put("balance", 0)
       initialBal.put("time", Instant.ofEpochMilli(0l).toString())
 
+      //In aggregate return type can be anything here I m using same return type JsonNode though
       val aggregateR = transactions.groupByKey.aggregate[JsonNode](initialBal)((key, transaction, bal) => createAggBal(transaction, bal))
       aggregateR.toStream.to("bank-balance-exactly-once")
       
