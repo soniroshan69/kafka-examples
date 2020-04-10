@@ -1,6 +1,5 @@
 package practice.kafka
 
-import java.time.Duration
 import java.time.Instant
 import java.util.Properties
 
@@ -17,21 +16,21 @@ import org.apache.kafka.connect.json.JsonDeserializer
 import org.apache.kafka.connect.json.JsonSerializer
 import org.apache.kafka.streams.KafkaStreams
 import org.apache.kafka.streams.StreamsConfig
-import org.apache.kafka.streams.kstream.TimeWindows
 import org.apache.kafka.streams.kstream.Windowed
 import org.apache.kafka.streams.processor.TimestampExtractor
 import org.apache.kafka.streams.scala.StreamsBuilder
 import org.apache.kafka.streams.scala.kstream.Consumed
+import org.apache.kafka.streams.scala.kstream.Materialized
 import org.apache.kafka.streams.scala.kstream.KStream
 import org.apache.kafka.streams.scala.kstream.KTable
-import org.apache.kafka.streams.scala.kstream.Materialized
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.node.JsonNodeFactory
-import org.apache.kafka.streams.KeyValue
+import org.apache.kafka.streams.kstream.SessionWindows
+import java.time.Duration
 import org.apache.kafka.streams.scala.kstream.Suppressed
 
-object TumblingWindow extends App {
+object SessionWindow extends App {
 
   TransactionProducer.proceed()
   WindowedCount.proceed()
@@ -53,9 +52,10 @@ object TumblingWindow extends App {
       for (x <- 1 to 3) {
         try {
           print("loop "+x)
-          prod.send(createRecord("divya", x * 2))
-          prod.send(createRecord("roshan", x))
-          prod.send(createRecord("shubham", x * 3))
+          prod.send(createRecord("user_101"))
+          prod.send(createRecord("user_101"))
+          prod.send(createRecord("user_102"))
+          prod.send(createRecord("user_101"))
           if(x==2)
           Thread.sleep(40000)
 
@@ -68,17 +68,16 @@ object TumblingWindow extends App {
 
     }
 
-    def createRecord(name: String, amount: Int): ProducerRecord[String, JsonNode] = {
+    def createRecord(user_id: String): ProducerRecord[String, JsonNode] = {
     
-      var transaction = JsonNodeFactory.instance.objectNode()
+      var clicks = JsonNodeFactory.instance.objectNode()
 
-      val transTime = Instant.now()
+      val clickTime = Instant.now()
 
-      transaction.put("name", name)
-      transaction.put("amount", amount)
-      transaction.put("time", transTime.toString())
+      clicks.put("user_id", user_id)
+      clicks.put("click_time", clickTime.toString())
 
-      return new ProducerRecord[String, JsonNode]("windowed-transaction", name, transaction)
+      return new ProducerRecord[String, JsonNode]("user-clicks", user_id, clicks)
 
     }
 
@@ -90,7 +89,7 @@ object TumblingWindow extends App {
     def proceed() = {
       val prop = new Properties()
       prop.setProperty(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
-      prop.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "transaction-count-app1")
+      prop.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "active-session-count-app")
       prop.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
       prop.setProperty(StreamsConfig.PROCESSING_GUARANTEE_CONFIG, StreamsConfig.EXACTLY_ONCE)
 
@@ -102,19 +101,17 @@ object TumblingWindow extends App {
       implicit val longSerde = Serdes.Long().asInstanceOf[Serde[scala.Long]]
 
       val builder = new StreamsBuilder
-      val transactions: KStream[String, JsonNode] =
-        builder.stream[String, JsonNode]("windowed-transaction")(Consumed.`with`(new TimeExtractor)(stringSerde, jsonSerde))
+      val userClicks: KStream[String, JsonNode] =
+        builder.stream[String, JsonNode]("user-clicks")(Consumed.`with`(new TimeExtractor)(stringSerde, jsonSerde))
 
-      val ks1: KTable[Windowed[String], Long] = transactions.groupByKey
-      .windowedBy(TimeWindows.of(Duration.ofSeconds(30)).grace(Duration.ofMinutes(2)))
-      .count()(Materialized.as("windowed-count-store")(stringSerde, longSerde))
-      .suppress(Suppressed.untilWindowCloses(Suppressed.BufferConfig.unbounded())) //wait until window is closed, 
-      //ie result of any window will appear in ks1 when it will be closed, a window will close after grace period or 2 minute
+      val ks1:KTable[Windowed[String],Long] = userClicks.groupByKey
+      .windowedBy(SessionWindows.`with`(Duration.ofMinutes(5)))
+      .count()(Materialized.as("active-session-stote")(stringSerde, longSerde))
 
       ks1.toStream.foreach((wkey, v) => println("name= " + wkey.key() + " window id=" + wkey.window().hashCode() + " window start=" + wkey.window().startTime()
         + " window end" + wkey.window().endTime() + " count= " + v))
         
-        ks1.toStream.map[String, Long]((key, value) => (key.key(), value)).to("windowed-count")
+        ks1.toStream.map[String, Long]((key, value) => (key.key(), value)).to("active-session-count")
 
       val streams = new KafkaStreams(builder.build(), prop)
       streams.start()
@@ -127,8 +124,8 @@ object TumblingWindow extends App {
   class TimeExtractor extends TimestampExtractor {
     @Override
     def extract(cr: ConsumerRecord[Object, Object], prevTime: Long): Long = {
-      val transaction = cr.value().asInstanceOf[JsonNode]
-      val time = Instant.parse(transaction.get("time").asText()).toEpochMilli()
+      val userClicks = cr.value().asInstanceOf[JsonNode]
+      val time = Instant.parse(userClicks.get("click_time").asText()).toEpochMilli()
       time
     }
   }

@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.node.JsonNodeFactory
 import org.apache.kafka.streams.KeyValue
 import org.apache.kafka.streams.scala.kstream.Suppressed
 
-object TumblingWindow extends App {
+object HoppingWindow extends App {
 
   TransactionProducer.proceed()
   WindowedCount.proceed()
@@ -106,7 +106,7 @@ object TumblingWindow extends App {
         builder.stream[String, JsonNode]("windowed-transaction")(Consumed.`with`(new TimeExtractor)(stringSerde, jsonSerde))
 
       val ks1: KTable[Windowed[String], Long] = transactions.groupByKey
-      .windowedBy(TimeWindows.of(Duration.ofSeconds(30)).grace(Duration.ofMinutes(2)))
+      .windowedBy(TimeWindows.of(Duration.ofSeconds(30)).grace(Duration.ofMinutes(2)).advanceBy(Duration.ofSeconds(15)))
       .count()(Materialized.as("windowed-count-store")(stringSerde, longSerde))
       .suppress(Suppressed.untilWindowCloses(Suppressed.BufferConfig.unbounded())) //wait until window is closed, 
       //ie result of any window will appear in ks1 when it will be closed, a window will close after grace period or 2 minute
