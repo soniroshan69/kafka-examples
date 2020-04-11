@@ -68,13 +68,4 @@ object JoinOpKtToKt extends App {
     streams.cleanUp()
   }
 
-  class TimeExtractor extends TimestampExtractor {
-    @Override
-    def extract(cr: ConsumerRecord[Object, Object], prevTime: Long): Long = {
-      val userClicks = cr.value().asInstanceOf[JsonNode]
-      val time = Instant.parse(userClicks.get("time").asText()).toEpochMilli()
-      time
-    }
-  }
-
 }
