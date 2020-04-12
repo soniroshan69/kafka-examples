@@ -1,5 +1,6 @@
 <classpath>
   <classpathentry kind="src" path="src/main/scala"/>
+  <classpathentry kind="src" path="src/test/scala"/>
   <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"></classpathentry>
   <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-clients/srcs/kafka-clients-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-clients/jars/kafka-clients-2.4.1.jar">
     <attributes>
@@ -74,6 +75,41 @@
   <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.30-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.30.jar">
     <attributes>
       <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.slf4j/slf4j-api/docs/slf4j-api-1.7.30-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.junit.jupiter/junit-jupiter-engine/srcs/junit-jupiter-engine-5.0.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.junit.jupiter/junit-jupiter-engine/jars/junit-jupiter-engine-5.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.junit.jupiter/junit-jupiter-engine/docs/junit-jupiter-engine-5.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apiguardian/apiguardian-api/srcs/apiguardian-api-1.0.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apiguardian/apiguardian-api/jars/apiguardian-api-1.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apiguardian/apiguardian-api/docs/apiguardian-api-1.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.junit.platform/junit-platform-engine/srcs/junit-platform-engine-1.0.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.junit.platform/junit-platform-engine/jars/junit-platform-engine-1.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.junit.platform/junit-platform-engine/docs/junit-platform-engine-1.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.junit.platform/junit-platform-commons/srcs/junit-platform-commons-1.0.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.junit.platform/junit-platform-commons/jars/junit-platform-commons-1.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.junit.platform/junit-platform-commons/docs/junit-platform-commons-1.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.opentest4j/opentest4j/srcs/opentest4j-1.0.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.opentest4j/opentest4j/jars/opentest4j-1.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.opentest4j/opentest4j/docs/opentest4j-1.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.junit.jupiter/junit-jupiter-api/srcs/junit-jupiter-api-5.0.0-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.junit.jupiter/junit-jupiter-api/jars/junit-jupiter-api-5.0.0.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.junit.jupiter/junit-jupiter-api/docs/junit-jupiter-api-5.0.0-javadoc.jar!/"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry sourcepath="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams-test-utils/srcs/kafka-streams-test-utils-2.4.1-sources.jar" kind="lib" path="/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams-test-utils/jars/kafka-streams-test-utils-2.4.1.jar">
+    <attributes>
+      <attribute name="javadoc_location" value="jar:file:/home/roshan/.ivy2/cache/org.apache.kafka/kafka-streams-test-utils/docs/kafka-streams-test-utils-2.4.1-javadoc.jar!/"/>
     </attributes>
   </classpathentry>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
